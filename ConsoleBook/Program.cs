@@ -49,8 +49,10 @@ public class Program
                 }
             }
         }
-
-        private static void AddContact()
+    /// <summary>
+    /// Lägger till en ny kontakt i adressboken.
+    /// </summary>
+    private static void AddContact()
         {
             Console.WriteLine("Ange förnamn:");
             string firstName = Console.ReadLine();
@@ -80,8 +82,10 @@ public class Program
             _contactService.AddContact(contact);
             Console.WriteLine("Kontakten har lagts till.");
         }
-
-        private static void ListContacts()
+    /// <summary>
+    /// Visar en lista med alla kontakter i adressboken.
+    /// </summary>
+    private static void ListContacts()
         {
             var contacts = _contactService.GetAllContacts();
             Console.WriteLine("Lista med kontakter:");
@@ -90,8 +94,10 @@ public class Program
                 Console.WriteLine($"Namn: {contact.FirstName} {contact.LastName}, E-post: {contact.Email}");
             }
         }
-
-        private static void ViewContactDetails()
+    /// <summary>
+    /// Visar detaljer om en specifik kontakt baserat på e-postadress.
+    /// </summary>
+    private static void ViewContactDetails()
         {
             Console.WriteLine("Ange e-postadress för kontakten du vill visa:");
             string email = Console.ReadLine();
@@ -108,8 +114,10 @@ public class Program
                 Console.WriteLine("Kontakten hittades inte.");
             }
         }
-
-        private static void RemoveContact()
+    /// <summary>
+    /// Tar bort en kontakt baserat på e-postadress.
+    /// </summary>
+    private static void RemoveContact()
         {
             Console.WriteLine("Ange e-postadress för kontakten du vill ta bort:");
             string email = Console.ReadLine();

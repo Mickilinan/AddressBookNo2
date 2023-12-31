@@ -1,7 +1,4 @@
-﻿
-
-using AddressBookNo2.Interfaces;
-using AddressBookNo2.Models;
+﻿using AddressBookNo2.Models;
 using AddressBookNo2.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -14,8 +11,16 @@ public partial class EditContactViewModel : ObservableObject
      private readonly IServiceProvider _serviceProvider;
     private readonly ContactService _contactService;
 
+    
+
     [ObservableProperty]
     private Contact contact = new();
+
+    /// <summary>
+    /// Skapar en ny instans av EditContactViewModel.
+    /// </summary>
+    /// <param name="serviceProvider">Service Provider för att hämta andra view models.</param>
+    /// <param name="contactService">ContactService för att hantera kontakter.</param>
     public EditContactViewModel(IServiceProvider serviceProvider, ContactService contactService)
     {
         _serviceProvider = serviceProvider;
@@ -23,6 +28,10 @@ public partial class EditContactViewModel : ObservableObject
 
         Contact = _contactService.CurrentContact;
     }
+
+
+
+
     private string _firstName = string.Empty;
     private string _lastName = string.Empty;
     private string _phone = string.Empty;
@@ -59,7 +68,9 @@ public partial class EditContactViewModel : ObservableObject
         set => SetProperty(ref _address, value);
     }
 
-
+    /// <summary>
+    /// Uppdaterar den redigerade kontakten och går tillbaka till kontaktlistan.
+    /// </summary>
 
 
     [RelayCommand]

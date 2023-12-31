@@ -20,6 +20,7 @@ public partial class App : Application
             {
 
              services.AddSingleton<ContactService>();
+             services.AddSingleton<JsonFileService>();
 
              services.AddTransient<AddContactView>();
              services.AddTransient<AddContactViewModel>();

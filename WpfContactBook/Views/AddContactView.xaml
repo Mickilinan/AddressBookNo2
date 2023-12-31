@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:WpfContactBook.Views"
+            
              xmlns:viewmodels="clr-namespace:WpfContactBook.ViewModels"
              d:DataContext="{d:DesignInstance Type=viewmodels:AddContactViewModel}"
              mc:Ignorable="d" 
@@ -42,15 +42,6 @@
                     BorderBrush="Transparent">
                         </Button>
                     </Border>
-                    <!--<Border CornerRadius="5" Background="LightGray" Margin="0,0,0,10">
-                        <Button Command="" Content="Tillbaka"
-                    Padding="5" 
-                    FontSize="12"
-                    FontFamily="Poppins"
-                    Background="Transparent"
-                    BorderBrush="Transparent">
-                        </Button>
-                    </Border>-->
                     <TextBlock FontFamily="Poppins" FontSize="14"  Text="" Foreground="LightSlateGray" Margin="0,10,0,0"/>
                 </StackPanel>
 

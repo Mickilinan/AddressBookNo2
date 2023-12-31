@@ -1,5 +1,4 @@
-﻿using AddressBookNo2.Interfaces;
-using AddressBookNo2.Models;
+﻿using AddressBookNo2.Models;
 using AddressBookNo2.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -14,6 +13,12 @@ public partial class AddContactViewModel : ObservableObject
 
     [ObservableProperty]
     private Contact contact = new();
+
+    /// <summary>
+    /// Skapar en ny instans av AddContactViewModel.
+    /// </summary>
+    /// <param name="serviceProvider">Service Provider för att hämta andra view models.</param>
+    /// <param name="contactService">ContactService för att hantera kontakter.</param>
     public AddContactViewModel(IServiceProvider serviceProvider, ContactService contactService)
     {
         _serviceProvider = serviceProvider;
@@ -56,7 +61,9 @@ public partial class AddContactViewModel : ObservableObject
         set => SetProperty(ref _address, value);
     }
 
-   
+    /// <summary>
+    /// Lägger till en ny kontakt till adressboken.
+    /// </summary>
 
     [RelayCommand]
     private void AddContact()
@@ -81,10 +88,7 @@ public partial class AddContactViewModel : ObservableObject
            var mainViewModel = _serviceProvider.GetRequiredService<MainViewModel>();
             mainViewModel.CurrentViewModel = _serviceProvider.GetRequiredService<ContactListViewModel>();
         }
-        else
-        {
-            // Lägg till logik för att hantera fel här
-        }
+     
     }
 }
 

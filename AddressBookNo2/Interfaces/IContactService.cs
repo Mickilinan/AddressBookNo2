@@ -1,6 +1,4 @@
-﻿
-
-using AddressBookNo2.Models;
+﻿using AddressBookNo2.Models;
 
 namespace AddressBookNo2.Interfaces;
 
