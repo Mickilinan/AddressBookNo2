@@ -7,11 +7,11 @@ namespace ConsoleBook;
 
 public class Program
 {
-    private static IContactService _contactService; // Du behöver en instans av ContactService
+    private static IContactService _contactService; 
 
         public static void Main(string[] args)
         {
-            // Ange sökvägen till din JSON-fil här
+            
             string filePath = "contacts.json";
             _contactService = new JsonFileService(filePath);
 
@@ -67,7 +67,7 @@ public class Program
             Console.WriteLine("Ange adress:");
             string address = Console.ReadLine();
 
-            // Skapa en ny kontakt
+            
             Contact contact = new Contact
             {
                 FirstName = firstName,

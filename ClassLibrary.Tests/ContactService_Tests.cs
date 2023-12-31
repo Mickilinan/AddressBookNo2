@@ -1,5 +1,4 @@
-﻿
-using AddressBookNo2.Models;
+﻿using AddressBookNo2.Models;
 using AddressBookNo2.Services;
 
 
@@ -86,6 +85,9 @@ public class ContactService_Tests
         var contacts = contactService.GetAll();
         Assert.DoesNotContain(contact, contacts);
     }
+
+    
 }
+
 
 
