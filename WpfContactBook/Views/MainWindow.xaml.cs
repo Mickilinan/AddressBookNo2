@@ -1,5 +1,7 @@
 ﻿
+using Microsoft.Extensions.DependencyInjection;
 using System.Windows;
+using WpfContactBook.ViewModels;
 
 
 namespace WpfContactBook;
@@ -7,8 +9,11 @@ namespace WpfContactBook;
 
 public partial class MainWindow : Window
 {
-    public MainWindow()
+    public MainWindow(IServiceProvider  serviceProvider)
     {
         InitializeComponent();
+        DataContext = serviceProvider.GetRequiredService<MainViewModel>();
     }
+
+   
 }

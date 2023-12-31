@@ -1,4 +1,6 @@
-﻿using AddressBookNo2.Interfaces;
+﻿
+
+using AddressBookNo2.Interfaces;
 using AddressBookNo2.Models;
 using AddressBookNo2.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
@@ -7,19 +9,20 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace WpfContactBook.ViewModels;
 
-public partial class AddContactViewModel : ObservableObject
+public partial class EditContactViewModel : ObservableObject
 {
-    private readonly IServiceProvider _serviceProvider;
+     private readonly IServiceProvider _serviceProvider;
     private readonly ContactService _contactService;
 
     [ObservableProperty]
     private Contact contact = new();
-    public AddContactViewModel(IServiceProvider serviceProvider, ContactService contactService)
+    public EditContactViewModel(IServiceProvider serviceProvider, ContactService contactService)
     {
         _serviceProvider = serviceProvider;
         _contactService = contactService;
-    }
 
+        Contact = _contactService.CurrentContact;
+    }
     private string _firstName = string.Empty;
     private string _lastName = string.Empty;
     private string _phone = string.Empty;
@@ -56,35 +59,22 @@ public partial class AddContactViewModel : ObservableObject
         set => SetProperty(ref _address, value);
     }
 
-   
+
+
 
     [RelayCommand]
-    private void AddContact()
+    private void UpdateContact()
     {
-        if (!string.IsNullOrWhiteSpace(FirstName) &&
-            !string.IsNullOrWhiteSpace(LastName) &&
-            !string.IsNullOrWhiteSpace(Phone) &&
-            !string.IsNullOrWhiteSpace(Email) &&
-            !string.IsNullOrWhiteSpace(Address))
-        {
-            var newContact = new Contact
-            {
-                FirstName = FirstName,
-                LastName = LastName,
-                Phone = Phone,
-                Email = Email,
-                Address = Address
-            };
+        Contact.FirstName = FirstName;
+        Contact.LastName = LastName;
+        Contact.Email = Email;
+        Contact.Phone = Phone;
+        Contact.Address = Address;
 
-            _contactService.Add(newContact);
+        _contactService.UpdateContact(Contact);
 
-           var mainViewModel = _serviceProvider.GetRequiredService<MainViewModel>();
-            mainViewModel.CurrentViewModel = _serviceProvider.GetRequiredService<ContactListViewModel>();
-        }
-        else
-        {
-            // Lägg till logik för att hantera fel här
-        }
+      var mainViewModel = _serviceProvider.GetRequiredService<MainViewModel>(); 
+        mainViewModel.CurrentViewModel = _serviceProvider.GetRequiredService<ContactListViewModel>();
     }
 }
 

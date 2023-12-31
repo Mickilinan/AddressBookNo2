@@ -1,0 +1,44 @@
+﻿<UserControl x:Class="WpfContactBook.Views.EditContactView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfContactBook.Views"
+             xmlns:viewmodels="clr-namespace:WpfContactBook.ViewModels"
+             d:DataContext="{d:DesignInstance Type=viewmodels:EditContactViewModel}"
+             
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+
+        <Viewbox>
+            <Grid Background="DarkSlateGray">
+
+                <StackPanel  Margin="20">
+                    <Label FontFamily="Poppins" Content="Förnamn"/>
+                    <TextBox Text="{Binding FirstName}" Margin="0,0,0,10"/>
+                    <Label FontFamily="Poppins" Content="Efternamn"/>
+                    <TextBox Text="{Binding LastName}" Margin="0,0,0,10"/>
+                    <Label FontFamily="Poppins" Content="E-post"/>
+                    <TextBox Text="{Binding Email}" Margin="0,0,0,10"/>
+                    <Label FontFamily="Poppins" Content="Telefonnummer"/>
+                    <TextBox Text="{Binding Phone}" Margin="0,0,0,10"/>
+                    <Label FontFamily="Poppins" Content="Adress"/>
+                    <TextBox Text="{Binding Address}" Margin="0,0,0,10"/>
+
+                    <Border CornerRadius="5" Background="LightGray" Margin="0,0,0,10">
+                        <Button Command="{Binding UpdateContactCommand}" Content="Spara ändringar" 
+              Padding="5" 
+              FontSize="12"
+              FontFamily="Poppins"
+              Background="Transparent"
+              BorderBrush="Transparent"/>
+                    </Border>
+                </StackPanel>
+
+            </Grid>
+        </Viewbox>
+
+
+    </Grid>
+</UserControl>
