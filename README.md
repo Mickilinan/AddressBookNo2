@@ -1,1 +1,2 @@
-# AddressBookNo2
+# Assignment AddressBook in C#
+The Address Book Application project involves developing a contact management system in C# and .NET. The Pass level requires a console application with functionality to add, display, and remove contacts, with data stored in a JSON file and basic code documentation and testing. The High Pass level extends these requirements by adding a graphical interface (WPF/MAUI), implementing the MVVM pattern, and requiring features such as contact updates, the Service Pattern, Dependency Injection, and comprehensive testing for both versions of the application.
